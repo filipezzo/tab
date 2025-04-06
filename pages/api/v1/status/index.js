@@ -13,7 +13,7 @@ export default async function status(request, response) {
     values: [usedDb],
   });
 
-  const dbVersion = version.rows[0].server_version;
+  const dbVersion = version?.rows[0].server_version;
   const dbMaxConnections = maxConnections.rows[0].max_connections;
   const dbOpenConnections = usedConnections.rows[0].count;
 
