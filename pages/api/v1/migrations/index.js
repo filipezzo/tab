@@ -10,7 +10,6 @@ export default async function migrations(request, response) {
   const dbClient = await database.getNewClient();
 
   const migrations = await migrationRunner({
-    databaseUrl: process.env.DATABASE_URL,
     dbClient,
     direction: "up",
     dir: join("infra", "migrations"),
