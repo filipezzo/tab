@@ -19,6 +19,6 @@ async function waitForAllServices() {
   }
 }
 
-export default {
-  waitForAllServices,
-};
+const waitForServices = { waitForAllServices };
+
+export default waitForServices;
