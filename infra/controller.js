@@ -1,13 +1,15 @@
 import {
   InternalServerError,
   MethodNotAllowed,
+  NotFoundError,
   ValidationError,
 } from "./errors";
 
 export function onErrorHandler(error, request, response) {
-  if (error instanceof ValidationError) {
+  if (error instanceof ValidationError || error instanceof NotFoundError) {
     return response.status(error.statusCode).json(error);
   }
+
   const publicError = new InternalServerError({
     cause: error,
     statusCode: error.statusCode,
