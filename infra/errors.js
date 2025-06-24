@@ -55,3 +55,23 @@ export class ServiceError extends Error {
     };
   }
 }
+
+export class ValidationError extends Error {
+  constructor({ message, cause, action }) {
+    super(message || "There was an error validating the data", {
+      cause,
+    });
+    this.name = "ValidationError";
+    this.action = action || "Please provide another creedentials.";
+    this.statusCode = 400;
+  }
+
+  toJSON() {
+    return {
+      name: this.name,
+      message: this.message,
+      action: this.action,
+      statusCode: this.statusCode,
+    };
+  }
+}
