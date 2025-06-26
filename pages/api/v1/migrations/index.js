@@ -9,7 +9,7 @@ router.post(postHandler);
 export default router.handler(controller.errorHandlers);
 
 async function getHandler(request, response) {
-  const pendingMigrations = await migrator.listPendingMigrations();
+  const pendingMigrations = await migrator.listMigrations();
   return response.status(200).json(pendingMigrations);
 }
 
