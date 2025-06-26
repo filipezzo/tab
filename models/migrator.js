@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 
 const defaultMigrationOptions = {
   dryRun: true,
-  dir: resolve("infra", "migrations"),
+  dir: resolve(process.cwd(), "infra", "migrations"),
   direction: "up",
   log: () => {},
   migrationsTable: "pgmigrations",
