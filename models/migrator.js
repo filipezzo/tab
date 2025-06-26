@@ -44,9 +44,7 @@ async function runPendingMigrations() {
   }
 }
 
-const migrator = {
+export const migrator = {
   listPendingMigrations,
   runPendingMigrations,
 };
-
-export default migrator;
